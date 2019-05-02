@@ -1,0 +1,13 @@
+<h1>Yoyos!</h1>
+
+<ul id="yoyos">
+  <% @yoyos.each do |yoyo| %>
+    <li>
+      <%= link_to yoyo.title,
+        yoyo_path(yoyo), 
+        class: 'yoyo_title',
+        id: "yoyo_#{yoyo.id}" %>
+      <%= yoyo.description %></b>
+    </li>
+    <% end %>
+  </ul>
