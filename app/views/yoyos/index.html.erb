@@ -3,11 +3,14 @@
 <ul id="yoyos">
   <% @yoyos.each do |yoyo| %>
     <li>
+      <%= image_tag yoyo.image, class: 'thumbnail' %>
       <%= link_to yoyo.title,
-        yoyo_path(yoyo), 
+        yoyo_path(yoyo),
         class: 'yoyo_title',
         id: "yoyo_#{yoyo.id}" %>
       <%= yoyo.description %></b>
     </li>
     <% end %>
   </ul>
+
+<%= link_to "Add another", new_yoyo_path() %>

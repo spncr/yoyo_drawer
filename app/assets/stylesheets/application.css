@@ -15,10 +15,47 @@
  */
 
 body {
-  background: Black;
-  color: Ivory;
+  background: #213;
+  color: #edd;
+  margin: 0;
 }
 
+main{
+  padding: 2em;
+}
+
+h1, h2,
 ul{
   list-style-type: none;
+}
+
+a{
+  color: #bad;
+}
+
+a:visited{
+  color: #baa;
+}
+
+a:hover{
+  color: #dad;
+}
+
+.flash{
+  color: #dad;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: .2em 2em;
+  border-bottom: solid 1px #bad;
+}
+
+#yoyos{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr))
+}
+.thumbnail{
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
 }

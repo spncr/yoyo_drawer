@@ -1,4 +1,14 @@
+<%= image_tag @yoyo.image %>
 <h1><%=@yoyo.title %></h1>
 <p><%=@yoyo.description %></p>
 
 <%= link_to "<< Back to all yoyos", yoyos_path %>
+
+<div id="edit_tools">
+  <%= link_to "📝", edit_yoyo_path(@yoyo),
+    title: "edit" %>
+  <%= link_to "💥", yoyo_path(@yoyo),
+    title: "destroy",
+    method: :delete,
+    data: {confirm: "Permanently remove?"} %>
+</div>

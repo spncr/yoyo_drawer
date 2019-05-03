@@ -1,0 +1,30 @@
+<%= form_for(@yoyo) do |form| %>
+  <ul class="errors">
+    <% @yoyo.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+
+  <p>
+    <%= form.label :title %><br />
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :description %><br />
+    <%= form.text_area :description %>
+  </p>
+  <p>
+    <%= form.file_field :image %>
+  </p>
+  <p>
+    <%= form.label :accepting_offers, "Accept offers?" %><br />
+    <%= form.label :accepting_offers, "Possibly" %>
+    <%= form.radio_button :accepting_offers, true %>
+    <%= form.label :accepting_offers, "Never" %>
+    <%= form.radio_button :accepting_offers, false %>
+
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
