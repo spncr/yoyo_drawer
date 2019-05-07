@@ -5,6 +5,9 @@ class YoyosController < ApplicationController
 
   def show
     @yoyo = Yoyo.find(params[:id])
+
+    @comment = Comment.new
+    @comment.yoyo_id = @yoyo.id
   end
 
   def new

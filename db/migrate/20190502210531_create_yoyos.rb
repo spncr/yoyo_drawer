@@ -4,7 +4,7 @@ class CreateYoyos < ActiveRecord::Migration[5.2]
       t.string :title
       t.text :description
       t.boolean :accepting_offers
-      t.binary :images
+      t.binary :image
 
       t.timestamps
     end

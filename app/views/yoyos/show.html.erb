@@ -2,7 +2,6 @@
 <h1><%=@yoyo.title %></h1>
 <p><%=@yoyo.description %></p>
 
-<%= link_to "<< Back to all yoyos", yoyos_path %>
 
 <div id="edit_tools">
   <%= link_to "📝", edit_yoyo_path(@yoyo),
@@ -12,3 +11,11 @@
     method: :delete,
     data: {confirm: "Permanently remove?"} %>
 </div>
+
+<%= link_to "<< Back to all yoyos", yoyos_path %>
+
+<h4>Comments (<%= @yoyo.comments.size %>) <small>Read at your own risk</small></h4>
+
+<%= render partial: 'yoyos/comment', collection: @yoyo.comments %>
+
+<%= render partial: 'comments/editor' %>
