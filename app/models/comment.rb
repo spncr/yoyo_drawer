@@ -1,3 +1,4 @@
 class Comment < ApplicationRecord
   belongs_to :yoyo
-end
+  validates :email, :presence => true
+  end

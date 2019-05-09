@@ -17,6 +17,12 @@
     <%= form.file_field :image %>
   </p>
   <p>
+    <%# form.collection_select :maker, Maker.order(:name), :id, :name %>
+    <%# form.collection_select :model, Model.order(:name), :id, :name  %>
+    <%= form.grouped_collection_select :model_id, @makers, :models, :name,:id, :name %>
+
+  </p>
+  <p>
     <%= form.label :accepting_offers, "Accept offers?" %><br />
     <%= form.label :accepting_offers, "Possibly" %>
     <%= form.radio_button :accepting_offers, true %>

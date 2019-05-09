@@ -12,6 +12,7 @@ class YoyosController < ApplicationController
 
   def new
     @yoyo = Yoyo.new
+    @makers = Maker.all
   end
 
   def create
@@ -23,6 +24,7 @@ class YoyosController < ApplicationController
 
   def edit
     @yoyo = Yoyo.find(params[:id])
+    @makers = Maker.all
   end
 
   def update
@@ -42,6 +44,6 @@ class YoyosController < ApplicationController
 
   private
   def yoyo_params
-    params.require(:yoyo).permit(:title, :description, :image, :accepting_offers)
+    params.require(:yoyo).permit(:title, :description, :image, :accepting_offers, :model_id)
   end
 end

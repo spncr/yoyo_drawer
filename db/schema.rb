@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_07_230059) do
+ActiveRecord::Schema.define(version: 2019_05_08_174007) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -43,6 +43,20 @@ ActiveRecord::Schema.define(version: 2019_05_07_230059) do
     t.index ["yoyo_id"], name: "index_comments_on_yoyo_id"
   end
 
+  create_table "makers", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "models", force: :cascade do |t|
+    t.string "name"
+    t.integer "maker_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["maker_id"], name: "index_models_on_maker_id"
+  end
+
   create_table "yoyos", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -50,6 +64,8 @@ ActiveRecord::Schema.define(version: 2019_05_07_230059) do
     t.binary "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "model_id"
+    t.index ["model_id"], name: "index_yoyos_on_model_id"
   end
 
 end

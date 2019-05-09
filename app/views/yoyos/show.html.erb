@@ -1,6 +1,7 @@
 <%= image_tag @yoyo.image %>
 <h1><%=@yoyo.title %></h1>
 <p><%=@yoyo.description %></p>
+<div><%=  @yoyo.model.name %> by <%= @yoyo.maker.name %></div>
 
 
 <div id="edit_tools">
@@ -12,10 +13,15 @@
     data: {confirm: "Permanently remove?"} %>
 </div>
 
-<%= link_to "<< Back to all yoyos", yoyos_path %>
+<p>
+  <%= link_to "<< Back to all yoyos", yoyos_path %>
+</p>
 
-<h4>Comments (<%= @yoyo.comments.size %>) <small>Read at your own risk</small></h4>
+<details>
+<summary><strong>Comments</strong>(<%= @yoyo.comments.size %>) <small>Read at your own risk</small></summary>
 
 <%= render partial: 'yoyos/comment', collection: @yoyo.comments %>
 
 <%= render partial: 'comments/editor' %>
+
+</details>
