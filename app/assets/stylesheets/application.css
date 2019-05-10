@@ -49,7 +49,7 @@ a:hover{
   border-bottom: solid 1px #bad;
 }
 
-#yoyos{
+div #yoyos{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-auto-rows: minmax(250px, 1fr);
@@ -68,7 +68,6 @@ a:hover{
   display: block;
   margin: 0;
   padding: .2em;
-
 }
 
 small{
