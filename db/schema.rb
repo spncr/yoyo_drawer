@@ -15,60 +15,62 @@ ActiveRecord::Schema.define(version: 2019_05_08_174007) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "active_storage_attachments", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+  create_table "active_storage_attachments", id: :bigint, default: nil, force: :cascade do |t|
+    t.text "name", null: false
+    t.text "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", force: :cascade do |t|
-    t.string "key", null: false
-    t.string "filename", null: false
-    t.string "content_type"
+  create_table "active_storage_blobs", id: :bigint, default: nil, force: :cascade do |t|
+    t.text "key", null: false
+    t.text "filename", null: false
+    t.text "content_type"
     t.text "metadata"
     t.bigint "byte_size", null: false
-    t.string "checksum", null: false
+    t.text "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "comments", force: :cascade do |t|
-    t.string "author_name"
-    t.string "author_email"
+  create_table "comments", id: :bigint, default: nil, force: :cascade do |t|
+    t.text "author_name"
+    t.text "author_email"
     t.text "content"
-    t.integer "yoyo_id"
+    t.bigint "yoyo_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["yoyo_id"], name: "index_comments_on_yoyo_id"
   end
 
-  create_table "makers", force: :cascade do |t|
-    t.string "name"
+  create_table "makers", id: :bigint, default: nil, force: :cascade do |t|
+    t.text "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "models", force: :cascade do |t|
-    t.string "name"
-    t.integer "maker_id"
+  create_table "models", id: :bigint, default: nil, force: :cascade do |t|
+    t.text "name"
+    t.bigint "maker_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["maker_id"], name: "index_models_on_maker_id"
   end
 
-  create_table "yoyos", force: :cascade do |t|
-    t.string "title"
+  create_table "yoyos", id: :bigint, default: nil, force: :cascade do |t|
+    t.text "title"
     t.text "description"
     t.boolean "accepting_offers"
     t.binary "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "model_id"
+    t.bigint "model_id"
     t.index ["model_id"], name: "index_yoyos_on_model_id"
   end
 
+  add_foreign_key "comments", "yoyos", name: "comments_yoyo_id_fkey"
+  add_foreign_key "models", "makers", name: "models_maker_id_fkey"
 end
