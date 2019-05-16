@@ -4,7 +4,12 @@
       <li><%= error %></li>
     <% end %>
   </ul>
-
+  <p>
+    <%# form.collection_select :maker, Maker.order(:name), :id, :name %>
+    <%# form.collection_select :model, Model.order(:name), :id, :name  %>
+    <%= form.grouped_collection_select :model_id, @makers, :models, :name,:id, :name, {:prompt => 'Which model is it?', :disabled => true} %>
+    <%= link_to "Not listed? Add it first.", new_model_path, class: 'subtext' %>
+  </p>
   <p>
     <%= form.label :title %><br />
     <%= form.text_field :title %>
@@ -16,12 +21,7 @@
   <p>
     <%= form.file_field :image %>
   </p>
-  <p>
-    <%# form.collection_select :maker, Maker.order(:name), :id, :name %>
-    <%# form.collection_select :model, Model.order(:name), :id, :name  %>
-    <%= form.grouped_collection_select :model_id, @makers, :models, :name,:id, :name %>
 
-  </p>
   <p>
     <%= form.label :accepting_offers, "Accept offers?" %><br />
     <%= form.label :accepting_offers, "Possibly" %>

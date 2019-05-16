@@ -46,4 +46,7 @@ class YoyosController < ApplicationController
   def yoyo_params
     params.require(:yoyo).permit(:title, :description, :image, :accepting_offers, :model_id)
   end
+
+  def create_comment
+  end
 end

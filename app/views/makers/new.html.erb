@@ -1,0 +1,11 @@
+<h1>Add another maker to the list </h1>
+
+<p>
+  <%= form_for [@maker] do |form|%>
+    <%= form.label :name, "Maker Name: " %>
+    <%= form.text_field :name %>
+    <%= form.submit "Add" %>
+  <% end %>
+</p>
+
+<%= link_to "<< Back to model creator.", new_model_path %>

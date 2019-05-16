@@ -70,7 +70,8 @@ a:hover{
   padding: .2em;
 }
 
-small{
+small,
+.subtext{
   font-size: .6em;
   font-weight: normal;
   color: #88c;

@@ -1,0 +1,14 @@
+<h1>Add another model to the list </h1>
+<%= form_for(@model) do |form|%>
+
+  <p>
+    <%= form.collection_select :maker_id, Maker.order(:name), :id, :name %>
+    <%= link_to "Add a new maker", new_maker_path, class: 'subtext' %> <br />
+    <%= form.label :name, "Model Name: " %>
+    <%= form.text_field :name %> <br />
+    <%= form.submit "Add the Model" %>
+
+  </p>
+
+  <%= link_to "<< Back to yoyo creator", new_yoyo_path %>
+<% end %>
