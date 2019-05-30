@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @collector.username %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @collector.email %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @collector.password %>
+</p>
+
+<p>
+  <strong>Password confirmation:</strong>
+  <%= @collector.password_confirmation %>
+</p>
+
+<%= link_to 'Edit', edit_collector_path(@collector) %> |
+<%= link_to 'Back', collectors_path %>

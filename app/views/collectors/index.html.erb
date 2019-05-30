@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Collectors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Password confirmation</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @collectors.each do |collector| %>
+      <tr>
+        <td><%= collector.username %></td>
+        <td><%= collector.email %></td>
+        <td><%= collector.password %></td>
+        <td><%= collector.password_confirmation %></td>
+        <td><%= link_to 'Show', collector %></td>
+        <td><%= link_to 'Edit', edit_collector_path(collector) %></td>
+        <td><%= link_to 'Destroy', collector, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Collector', new_collector_path %>

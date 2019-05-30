@@ -12,9 +12,35 @@
   </head>
 
   <body>
-    <% if flash[:notice] %>
-      <div class="flash"><%=flash.notice%></div>
+    <header>
+      <% if flash[:notice] %>
+        <div class="flash"><%= flash.notice %></div>
+      <% elsif flash[:alert] %>
+        <div class="alert"><%= flash.alert %></div>
       <% end %>
+      <span id="page_title">Yoyos</span>
+      <nav><% if current_user %>
+        <%= link_to "Add another", new_yoyo_path() %>
+        <% end %>
+      </nav>
+    </header>
+
     <main><%= yield %></main>
+
+    <footer>
+      <span id="credits">Created by <a href="https://spncr.dev" title="Spencer Berry - Developer">spncr</a></span>
+
+      <small id="user_options">
+        <% if current_user %>
+          <%= link_to "Edit profile", edit_user_path(current_user.id) %>
+          <%= link_to "Log out", :logout, method: :post %>
+        <% else %>
+          <%= link_to "Log in", :login %> |
+          <%= link_to "Register", new_user_path %>
+        <% end %>
+      </small>
+
+
+    </footer>
   </body>
 </html>

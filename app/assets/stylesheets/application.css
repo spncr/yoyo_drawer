@@ -11,17 +11,66 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+
  *= require_self
  */
+
+html, body{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 body {
   background: #213;
   color: #edd;
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+header{
+  padding: .5em 2em;
+  background-color: #29222d;
+  flex-shrink: 0;
+  display: flex;
+}
+
+.flash{
+  flex-stretch: auto;
+  width: 100%;
+  margin: 0 -2em;
+  padding: .2em 2em;
+  border-bottom: solid 1px #bad;
+}
+
+#page_title{
+  font-size: 1.2em;
+  padding-right: 2em;
+}
+nav{
+  align-self: center;
 }
 
 main{
-  padding: 2em;
+  margin: 0 2em;
+  flex: 1 0 auto;
+  padding: .5em 0;
+}
+
+footer{
+  flex-shrink: 0;
+  padding: .5em 2em;
+  background-color: #29222d;
+  display: flex;
+}
+
+#credits{
+  flex-grow: 1;
+}
+
+#user_options{
+  flex-shrink: 0;
+  align-self: flex-end;
 }
 
 ul{
@@ -40,14 +89,6 @@ a:hover{
   color: #dad;
 }
 
-.flash{
-  color: #dad;
-  display: block;
-  width: 100%;
-  margin: 0;
-  padding: .2em 2em;
-  border-bottom: solid 1px #bad;
-}
 
 #yoyos{
   display: grid;

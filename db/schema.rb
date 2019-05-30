@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_08_174007) do
+ActiveRecord::Schema.define(version: 2019_05_17_221209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 2019_05_08_174007) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "collectors", force: :cascade do |t|
+    t.string "username", null: false
+    t.string "email", null: false
+    t.string "crypted_password", null: false
+    t.string "salt", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_collectors_on_email", unique: true
+  end
+
   create_table "comments", id: :bigint, default: nil, force: :cascade do |t|
     t.text "author_name"
     t.text "author_email"
@@ -58,6 +68,16 @@ ActiveRecord::Schema.define(version: 2019_05_08_174007) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["maker_id"], name: "index_models_on_maker_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "email", null: false
+    t.string "crypted_password"
+    t.string "salt"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   create_table "yoyos", id: :bigint, default: nil, force: :cascade do |t|
