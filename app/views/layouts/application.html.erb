@@ -18,7 +18,7 @@
       <% elsif flash[:alert] %>
         <div class="alert"><%= flash.alert %></div>
       <% end %>
-      <a href="<%= yoyos_path %>" title="Index"><span id="page_title">Yoyos</span></a>
+      <a href="<%= yoyos_path %>" title="index"><span id="page_title">Yoyos</span></a>
       <nav><% if current_user %>
         <%= link_to "Add another", new_yoyo_path() %>
         <% end %>
