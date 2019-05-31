@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
+  before_action :zero_authors_or_authenticated, only: [:new, :create, :edit, :index]
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  skip_before_action :require_login, only: [:index, :new, :create]
   # GET /users
   # GET /users.json
   def index
@@ -66,6 +66,14 @@ class UsersController < ApplicationController
   end
 
   private
+
+    def zero_authors_or_authenticated
+      unless User.count == 0 || current_user
+        redirect_to root_path
+        return false
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])

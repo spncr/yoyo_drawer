@@ -39,6 +39,8 @@ class YoyosController < ApplicationController
   def destroy
     @yoyo = Yoyo.find(params[:id])
     @yoyo.destroy
+
+    flash.notice = "#{@yoyo.title} is gone."
     redirect_to yoyos_path
   end
 

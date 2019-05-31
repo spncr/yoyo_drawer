@@ -1,19 +1,21 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
  *= require_tree .
 
  *= require_self
  */
+
+ :root{
+  --dark: #170236;
+  --darkest: #0c0218;
+  --dark_bright: #1c0050;
+  --cool : #b6c9e9;
+  --cool_bright: #7398eb;
+  --cool_dim: #3d4499;
+  --warm : #e7dfb9;
+  --warning: #ff2a7d;
+  --alert : #ffc950;
+  --success : #17608a;
+}
 
 html, body{
   height: 100%;
@@ -22,15 +24,21 @@ html, body{
 }
 
 body {
-  background: #213;
-  color: #edd;
+  background: var(--darkest);
+  color: var(--warm);
   display: flex;
   flex-direction: column;
 }
 
-header{
+header,
+.flash,
+.alert,
+main{
   padding: .5em 2em;
-  background-color: #29222d;
+}
+
+header{
+  background-color: var(--dark);
   flex-shrink: 0;
   display: flex;
 }
@@ -38,29 +46,24 @@ header{
 .flash{
   flex-stretch: auto;
   width: 100%;
-  margin: 0 -2em;
-  padding: .2em 2em;
-  border-bottom: solid 1px #bad;
+  border-bottom: solid 8px var(--darkest);
+  background-color: var(--success);
 }
 
 #page_title{
   font-size: 1.2em;
   padding-right: 2em;
 }
-nav{
-  align-self: center;
-}
+
 
 main{
-  margin: 0 2em;
   flex: 1 0 auto;
-  padding: .5em 0;
 }
 
 footer{
   flex-shrink: 0;
   padding: .5em 2em;
-  background-color: #29222d;
+  background-color: var(--dark);
   display: flex;
 }
 
@@ -78,17 +81,16 @@ ul{
 }
 
 a{
-  color: #bad;
+  color: var(--cool);
 }
 
 a:visited{
-  color: #baa;
+  color: var(--cool_dim);
 }
 
 a:hover{
-  color: #dad;
+  color: var(--cool_bright);
 }
-
 
 #yoyos{
   display: grid;
@@ -105,20 +107,19 @@ a:hover{
 }
 
 .yoyo_title{
-  background-color: rgba(0,0,0,.4);
   display: block;
   margin: 0;
-  padding: .2em;
+  padding: .3em;
+  background-color: var(--dark);
 }
 
 small,
 .subtext{
   font-size: .6em;
   font-weight: normal;
-  color: #88c;
 }
 
 .comment{
-  border-bottom: 1px solid #bad;
+  border-bottom: 3px solid var(--dark_bright);
   font-size: .8em;
 }

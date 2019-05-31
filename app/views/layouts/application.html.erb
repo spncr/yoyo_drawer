@@ -12,23 +12,23 @@
   </head>
 
   <body>
+    <% if flash[:notice] %>
+      <div class="flash"><%= flash.notice %></div>
+    <% elsif flash[:alert] %>
+      <div class="alert"><%= flash.alert %></div>
+    <% end %>
     <header>
-      <% if flash[:notice] %>
-        <div class="flash"><%= flash.notice %></div>
-      <% elsif flash[:alert] %>
-        <div class="alert"><%= flash.alert %></div>
-      <% end %>
-      <a href="<%= yoyos_path %>" title="index"><span id="page_title">Yoyos</span></a>
-      <nav><% if current_user %>
-        <%= link_to "Add another", new_yoyo_path() %>
-        <% end %>
-      </nav>
+        <a href="<%= yoyos_path %>" title="index"><span id="page_title">Yoyos</span></a>
+        <nav><% if current_user %>
+          <%= link_to "Add another", new_yoyo_path() %>
+          <% end %>
+        </nav>
     </header>
 
     <main><%= yield %></main>
 
     <footer>
-      <span id="credits">Created by <a href="https://spncr.dev" title="Spencer Berry - Developer">spncr</a></span>
+      <small id="credits">Created by <a href="https://spncr.dev" title="Spencer Berry - Developer">spncr</a></small>
 
       <small id="user_options">
         <% if current_user %>
