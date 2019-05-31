@@ -1,4 +1,6 @@
 class YoyosController < ApplicationController
+  before_action :require_login, except: [:show, :index]
+  
   def index
     @yoyos = Yoyo.all
   end

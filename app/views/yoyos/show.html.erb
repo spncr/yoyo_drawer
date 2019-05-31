@@ -3,15 +3,16 @@
 <p><%=@yoyo.description %></p>
 <div><%=  @yoyo.model.name %> by <%= @yoyo.maker.name %></div>
 
-
-<div id="edit_tools">
-  <%= link_to "📝", edit_yoyo_path(@yoyo),
-    title: "edit" %>
-  <%= link_to "💥", yoyo_path(@yoyo),
-    title: "destroy",
-    method: :delete,
-    data: {confirm: "Permanently remove?"} %>
-</div>
+<% if current_user %>
+  <div id="edit_tools">
+    <%= link_to "📝", edit_yoyo_path(@yoyo),
+      title: "edit" %>
+    <%= link_to "💥", yoyo_path(@yoyo),
+      title: "destroy",
+      method: :delete,
+      data: {confirm: "Permanently remove?"} %>
+  </div>
+<% end %>
 
 <p>
   <%= link_to "<< Back to all yoyos", yoyos_path %>
