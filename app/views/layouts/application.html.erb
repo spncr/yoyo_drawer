@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Yoyos</title>
+    <title>Yoyos of Spencer Berry</title>
     <%= favicon_link_tag 'favicon.ico' %>
     <%= favicon_link_tag 'apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png' %>
     <%= csrf_meta_tags %>
@@ -23,6 +23,8 @@
           <%= link_to "Add another", new_yoyo_path() %>
           <% end %>
         </nav>
+        <small class="count subtext"><%= Yoyo.all.count %> accounted for. </small>
+
     </header>
 
     <main><%= yield %></main>

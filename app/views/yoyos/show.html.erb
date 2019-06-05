@@ -1,7 +1,7 @@
 <%= image_tag @yoyo.image %>
 <h1><%=@yoyo.title %></h1>
+<div class="make_model"><%=  @yoyo.model.name %> by <%= @yoyo.maker.name %></div>
 <p><%=@yoyo.description %></p>
-<div><%=  @yoyo.model.name %> by <%= @yoyo.maker.name %></div>
 
 <% if current_user %>
   <div id="edit_tools">

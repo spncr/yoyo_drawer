@@ -2,3 +2,25 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+.comment{
+  border-bottom: 3px solid var(--dark_bright);
+  font-size: .8em;
+}
+
+textarea,
+text,
+input[type=text]
+{
+  background-color: var(--darkest);
+  border: 3px solid var(--dark_bright);
+  color: var(--warm);
+}
+
+textarea{
+  height: 4em;
+  min-width: 12em;
+  width: auto;
+  padding: .5em;
+
+}

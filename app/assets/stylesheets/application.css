@@ -43,6 +43,10 @@ header{
   display: flex;
 }
 
+nav a{
+  padding-right: 1em;
+}
+
 .flash{
   flex-stretch: auto;
   width: 100%;
@@ -55,7 +59,10 @@ header{
   padding-right: 2em;
 }
 
-
+.make_model{
+  padding: 1em 0;
+  background-color: var(--dark);
+}
 main{
   flex: 1 0 auto;
 }
@@ -75,6 +82,7 @@ footer{
   flex-shrink: 0;
   align-self: flex-end;
 }
+
 
 ul{
   list-style-type: none;
@@ -117,9 +125,4 @@ small,
 .subtext{
   font-size: .6em;
   font-weight: normal;
-}
-
-.comment{
-  border-bottom: 3px solid var(--dark_bright);
-  font-size: .8em;
 }

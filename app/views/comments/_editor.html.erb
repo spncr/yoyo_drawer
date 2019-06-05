@@ -1,10 +1,10 @@
 <h5>Post a comment</h5>
 <%= form_for [@yoyo, @comment] do |form| %>
-  <p>
+  <div class="comment-form">
     <%= form.text_area :content %><br />
     <%= form.label :author_name, "Name: " %><%= form.text_field :author_name%><br />
     <%= form.label :author_email, "Email:" %><%= form.text_field :author_email %>
     <small>For verification only</small><br />
     <%= form.submit "Post it" %>
-  </p>
+  </div>
 <% end %>
