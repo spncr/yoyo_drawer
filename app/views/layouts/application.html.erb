@@ -12,18 +12,15 @@
   </head>
 
   <body>
-
     <header class="section">
         <div class="title">
           <h1><%= link_to "Yoyo Drawer", yoyos_path, title: "See all yoyos" %></h1>
-          <small class="subtext"><%= Yoyo.all.count %> accounted for. </small>
+          <span class="subtitle"><%= Yoyo.all.count %> and counting... </span>
         </div>
         <% if current_user %>
           <%= link_to "Add another", new_yoyo_path, class: "link" %>
         <% end %>
-
     </header>
-
 
     <main class="section">
       <% if flash[:notice] %>

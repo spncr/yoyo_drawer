@@ -3,7 +3,9 @@
   <% @yoyos.each do |yoyo| %>
     <div class="tile smooth">
       <%= link_to yoyo_path(yoyo) do %>
-        <%= image_tag yoyo.image, class: 'thumbnail smooth' %>
+        <%= image_tag yoyo.image.variant(
+          auto_orient: true, resize: '256x256'),
+         class: 'thumbnail smooth' %>
         <span class="title"><%=yoyo.title %></span>
       <% end %>
     </div>

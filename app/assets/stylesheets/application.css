@@ -83,6 +83,11 @@ footer {
   flex-grow: 1;
 }
 
+.subtitle{
+  padding: 10px;
+  font-size: 14px;
+}
+
 .link {
   background-color: var(--dark);
   display: inline-block;
@@ -178,8 +183,6 @@ footer {
   grid-gap: 0;
   line-height: 1;
  }
-
-
 
 .yoyo_title{
   display: block;

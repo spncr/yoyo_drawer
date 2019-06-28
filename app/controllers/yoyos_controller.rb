@@ -3,12 +3,10 @@ class YoyosController < ApplicationController
 
   def index
     @yoyos = Yoyo.all
-    @body_class = 'index'
   end
 
   def show
     @yoyo = Yoyo.find(params[:id])
-    @body_class = 'yoyo'
     @comment = Comment.new
     @comment.yoyo_id = @yoyo.id
   end

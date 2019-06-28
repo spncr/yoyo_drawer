@@ -1,4 +1,4 @@
-<%= image_tag @yoyo.image %>
+<%= image_tag @yoyo.image.variant(auto_orient: true, resize: '512x512') %>
 <h2><%=@yoyo.title %></h2>
 <div class="make_model">
   <%=  @yoyo.model.name %> by <%= @yoyo.maker.name %></div>
