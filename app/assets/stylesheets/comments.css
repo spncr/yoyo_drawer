@@ -4,10 +4,16 @@
 */
 
 .comment{
-  border-bottom: 3px solid var(--dark_bright);
+  border-bottom: 3px solid (--dark_bright);
   font-size: .8em;
 }
 
+.comment_form{
+  display: grid;
+
+}
+
+.
 textarea,
 text,
 input[type=text]

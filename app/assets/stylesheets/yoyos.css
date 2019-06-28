@@ -1,4 +1,16 @@
 /*
-Place all the styles related to the Yoyos controller here. 
+Place all the styles related to the Yoyos controller here.
 They will automatically be included in application.css.
 */
+
+img{
+  max-width: 512px;
+}
+
+.make_model{
+  border-top: 2px solid var(--cool);
+  border-bottom: 2px solid var(--cool);
+  background-color: var(--dark);
+  margin: 0 -20px;
+  padding: 20px;
+}

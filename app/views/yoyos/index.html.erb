@@ -1,13 +1,11 @@
 
-<div id="yoyos">
+<div id="yoyos" class="tiles">
   <% @yoyos.each do |yoyo| %>
-    <div>
-      <%= image_tag yoyo.image, class: 'thumbnail' %>
-      <%= link_to yoyo.title,
-        yoyo_path(yoyo),
-        class: 'yoyo_title',
-        id: "yoyo_#{yoyo.id}" %>
-      <%# yoyo.description %></b>
+    <div class="tile smooth">
+      <%= link_to yoyo_path(yoyo) do %>
+        <%= image_tag yoyo.image, class: 'thumbnail smooth' %>
+        <span class="title"><%=yoyo.title %></span>
+      <% end %>
     </div>
     <% end %>
 </div>

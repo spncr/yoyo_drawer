@@ -8,6 +8,8 @@ gem 'rails', '~> 5.2.3'
 gem 'pg'
 #AWS for production active storage
 gem 'aws-sdk-s3', require: false
+#image manipulation
+gem "mini_magick"
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use Uglifier as compressor for JavaScript assets

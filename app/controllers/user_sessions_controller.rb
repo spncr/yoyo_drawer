@@ -11,7 +11,7 @@ class UserSessionsController < ApplicationController
     if @user
       redirect_back_or_to(:yoyos, notice: 'Logged in!')
     else
-      flash.now[:alert] = 'Login mistake ):'
+      flash.now[:notice] = 'Login mistake ):'
       render action: 'new'
     end
   end

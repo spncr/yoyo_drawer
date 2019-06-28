@@ -6,30 +6,35 @@
     <%= favicon_link_tag 'apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Open+Sans|Raleway:600&display=swap' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <% if flash[:notice] %>
-      <div class="flash"><%= flash.notice %></div>
-    <% elsif flash[:alert] %>
-      <div class="alert"><%= flash.alert %></div>
-    <% end %>
-    <header>
-        <a href="<%= yoyos_path %>" title="index"><span id="page_title">Yoyos</span></a>
-        <nav><% if current_user %>
-          <%= link_to "Add another", new_yoyo_path() %>
-          <% end %>
-        </nav>
-        <small class="count subtext"><%= Yoyo.all.count %> accounted for. </small>
+
+    <header class="section">
+        <div class="title">
+          <h1><%= link_to "Yoyo Drawer", yoyos_path, title: "See all yoyos" %></h1>
+          <small class="subtext"><%= Yoyo.all.count %> accounted for. </small>
+        </div>
+        <% if current_user %>
+          <%= link_to "Add another", new_yoyo_path, class: "link" %>
+        <% end %>
 
     </header>
 
-    <main><%= yield %></main>
 
-    <footer>
+    <main class="section">
+      <% if flash[:notice] %>
+        <div class="flash notice"><%= flash.notice %></div>
+      <% elsif flash[:alert] %>
+        <div class="flash alert"><%= flash.alert %></div>
+      <% end %>
+      <%= yield %>
+    </main>
+
+    <footer class="section">
       <small id="credits">Created by <a href="https://spncr.dev" title="Spencer Berry - Developer">spncr</a></small>
 
       <small id="user_options">
