@@ -1,6 +1,6 @@
 <div class="comment">
   <p>
     <%= comment.content %> -- <%= comment.author_name %>
-    <br /><small>from <%= distance_of_time_in_words(comment.yoyo.created_at, comment.created_at)  %> ago</small>
+    <br /><small>from <%= distance_of_time_in_words(Time.now, comment.created_at)  %> ago</small>
   </p>
 </div>
