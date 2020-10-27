@@ -18,6 +18,9 @@ class YoyosController < ApplicationController
 
   def create
     @yoyo = Yoyo.new(yoyo_params)
+    unless @yoyo.image.attached?
+      @yoyo.image.attach(io: File.open('app/assets/images/placeholder.jpg'), filename: 'placeholder.jpg')
+    end
     @yoyo.save
 
     redirect_to yoyos_path
