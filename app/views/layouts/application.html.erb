@@ -18,7 +18,7 @@
           <span class="subtitle"><%= Yoyo.all.count %> and counting... </span>
         </div>
         <% if current_user %>
-          <%= link_to "Add another", new_yoyo_path, class: "link" %>
+          <%= link_to "Add a yoyo", new_yoyo_path, class: "link" %>
         <% end %>
     </header>
 
@@ -35,12 +35,14 @@
       <small id="credits">Created by <a href="https://spncr.dev" title="Spencer Berry - Developer">spncr</a></small>
 
       <small id="user_options">
-        <% if current_user %>
-          <%= link_to "Edit profile", edit_user_path(current_user.id) %>
+        <% if logged_in? %>
+          Logged in as <strong><%= current_user.name %> </strong> |
+          <%= link_to "Manage users", users_path %> |
           <%= link_to "Log out", :logout, method: :post %>
+        <% elsif User.count == 0 %>
+          <%= link_to "Create the first user", new_user_path, class: 'link' %>
         <% else %>
-          <%= link_to "Log in", :login %> |
-          <%= link_to "Register", new_user_path %>
+          <%= link_to "Log in", :login %>
         <% end %>
       </small>
 
